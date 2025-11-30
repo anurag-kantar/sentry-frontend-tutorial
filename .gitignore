@@ -5,6 +5,12 @@
 
 # build output
 /dist
+/coverage
+/coverage/
+
+# local env
+.env
+.env.*
 
 # production
 /build

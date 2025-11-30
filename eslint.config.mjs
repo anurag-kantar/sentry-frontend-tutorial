@@ -2,6 +2,8 @@ import js from '@eslint/js';
 import globals from 'globals';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import testingLibrary from 'eslint-plugin-testing-library';
+import vitestPlugin from 'eslint-plugin-vitest';
 
 export default [
   {
@@ -37,6 +39,31 @@ export default [
       react: {
         version: 'detect',
       },
+    },
+  },
+  {
+    files: ['**/*.{test,spec}.{js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.es2024,
+        ...globals.vitest,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    plugins: {
+      'testing-library': testingLibrary,
+      vitest: vitestPlugin,
+    },
+    rules: {
+      ...testingLibrary.configs.react.rules,
+      ...vitestPlugin.configs.recommended.rules,
     },
   },
 ];
