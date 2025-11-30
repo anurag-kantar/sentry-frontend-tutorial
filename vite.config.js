@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from '@vitejs/plugin-react'
-import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 export default defineConfig({
   build: {
@@ -18,10 +17,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), // Put the Sentry vite plugin after all other plugins
-  sentryVitePlugin({
-    org: "blackwood-seven-e2d23a3f8",
-    project: "javascript-react",
-    authToken: process.env.SENTRY_AUTH_TOKEN,
-  })],
+  plugins: [react()],
 });

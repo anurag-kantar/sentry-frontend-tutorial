@@ -11,13 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@sentry/vite-plugin": "^3.4.0",
     "html-webpack-plugin": "^5.5.3",
     "style-loader": "^3.3.3",
     "vite-plugin-html": "^3.2.2"
   },
   "dependencies": {
-    "@sentry/react": "^9.18.0",
     "@vitejs/plugin-react": "^4.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

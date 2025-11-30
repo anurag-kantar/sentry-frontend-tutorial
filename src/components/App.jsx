@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import * as Sentry from "@sentry/react";
 import "./App.css";
 import wrenchImg from "../assets/wrench.png";
 import nailsImg from "../assets/nails.png";
@@ -50,12 +49,6 @@ class App extends Component {
       defaultError(error);
     };
 
-    // Add context to error/event
-    // View this data in "Tags"
-    // Sentry.configureScope((scope) => {
-    //   scope.setUser({ email: this.email }); // attach user/email context
-    //   scope.setTag("customerType", "medium-plan"); // custom-tag
-    // });
   }
 
   buyItem(item) {
@@ -63,33 +56,11 @@ class App extends Component {
     cart.push(item);
     console.log(item);
     this.setState({ cart, success: false });
-
-    // Add context to error/event
-    // View this data in "Additional Data"
-    // Sentry.configureScope((scope) => {
-    //   scope.setExtra("cart", JSON.stringify(cart));
-    // });
-    // // View this data in "Breadcrumbs"
-    // Sentry.addBreadcrumb({
-    //   category: "cart",
-    //   message: "User added " + item.name + " to cart",
-    //   level: "info",
-    // });
   }
 
   resetCart(event) {
     event.preventDefault();
     this.setState({ cart: [], hasError: false, success: false });
-
-    // Reset context for error/event
-    // Sentry.configureScope((scope) => {
-    //   scope.setExtra("cart", "");
-    // });
-    // Sentry.addBreadcrumb({
-    //   category: "cart",
-    //   message: "User emptied cart",
-    //   level: "info",
-    // });
   }
 
   checkout() {
@@ -100,12 +71,8 @@ class App extends Component {
       email: this.email,
       cart: this.state.cart,
     };
-
-    // generate unique transactionId and set as Sentry tag
+  // generate unique transactionId for correlating checkout flow
     const transactionId = getUniqueId();
-    // Sentry.configureScope((scope) => {
-    //   scope.setTag("transaction_id", transactionId);
-    // });
 
     // Set transctionID as header
     const fetchData = {
