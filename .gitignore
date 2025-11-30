@@ -3,5 +3,11 @@
 # dependencies
 /node_modules
 
+# build output
+/dist
+
 # production
 /build
+
+# misc
+.DS_Store

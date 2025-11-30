@@ -2,9 +2,10 @@
   "name": "frontend-tutorial-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "prebuild": "npm run lint && npm run format:check",
     "build": "vite build",
     "start": "vite",
@@ -17,12 +18,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vitejs/plugin-react": "^4.4.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "vite": "^6.3.5"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
@@ -32,7 +32,8 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.7.3"
+    "prettier": "^3.7.3",
+    "vite": "^6.3.5"
   },
   "lint-staged": {
     "*.{js,jsx}": [
