@@ -27,18 +27,18 @@ jobs:
       - run:
           name: Run tests with coverage
           command: npm run test
-        - run:
+      - run:
           name: Build application
           command: npm run build
-        - run:
+      - run:
           name: Prepare artifacts
           command: |
           mkdir -p dist
           mkdir -p coverage
-        - store_artifacts:
+      - store_artifacts:
           path: dist
           destination: dist
-        - store_artifacts:
+      - store_artifacts:
           path: coverage
           destination: coverage
 
